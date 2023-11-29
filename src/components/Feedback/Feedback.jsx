@@ -4,7 +4,7 @@ import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 import Notification from './Notification';
 // Styles
-import { Container } from './Feedback.styled';
+import { Container } from './Styled/Feedback.styled';
 
 class Feedback extends Component {
   state = {
@@ -32,6 +32,7 @@ class Feedback extends Component {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
+
     return (
       <Container>
         <h2>Please leave feedback</h2>
