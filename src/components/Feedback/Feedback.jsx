@@ -1,9 +1,10 @@
 import { Component } from 'react';
-import css from './Feedback.module.css';
 import Section from './Section';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 import Notification from './Notification';
+// Styles
+import { Container } from './Feedback.styled';
 
 class Feedback extends Component {
   state = {
@@ -32,8 +33,8 @@ class Feedback extends Component {
     const total = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
-      <div className={css.continer}>
-        <h2 className={css.meanTitle}>Please leave feedback</h2>
+      <Container>
+        <h2>Please leave feedback</h2>
         <FeedbackOptions
           options={['good', 'neutral', 'bad']}
           onLeaveFeedback={this.feedbackType}
@@ -51,7 +52,7 @@ class Feedback extends Component {
             <Notification message="There is no feedback" />
           )}
         </Section>
-      </div>
+      </Container>
     );
   }
 }
