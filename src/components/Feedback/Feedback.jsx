@@ -37,7 +37,7 @@ class Feedback extends Component {
       <Container>
         <h2>Please leave feedback</h2>
         <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
+          options={Object.keys(this.state)}
           onLeaveFeedback={this.feedbackType}
         />
         <Section title="Statistics">
