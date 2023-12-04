@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Styled/Button.styled';
+import { Button } from './Styled/Button.styled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <div>
