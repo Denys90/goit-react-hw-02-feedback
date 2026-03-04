@@ -1,7 +1,15 @@
 import React from 'react';
 import { Button } from './Styled/Button.styled';
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => (
+type FeedbackType = 'good' | 'neutral' | 'bad';
+interface FeedbackOptionsProps {
+  options: FeedbackType[];
+  onLeaveFeedback: (type: FeedbackType) => void;
+}
+const FeedbackOptions = ({
+  options,
+  onLeaveFeedback,
+}: FeedbackOptionsProps) => (
   <div>
     {options.map(option => {
       let buttonColor;

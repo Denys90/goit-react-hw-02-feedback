@@ -6,15 +6,28 @@ import Notification from './Notification';
 // Styles
 import { Container } from './Styled/Feedback.styled';
 
-class Feedback extends Component {
+interface FeedbackState {
+  good: number;
+  neutral: number;
+  bad: number;
+}
+
+type FeedbackType = 'good' | 'neutral' | 'bad';
+
+const feedbackOptions: FeedbackType[] = ['good', 'neutral', 'bad'];
+
+class Feedback extends Component<{}, FeedbackState> {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
-  feedbackType = type => {
-    this.setState({ [type]: this.state[type] + 1 });
+  feedbackType = (type: FeedbackType) => {
+    this.setState(prev => ({
+      ...prev,
+      [type]: prev[type] + 1,
+    }));
   };
 
   countTotalFeedback = () => {
@@ -37,7 +50,7 @@ class Feedback extends Component {
       <Container>
         <h2>Please leave feedback</h2>
         <FeedbackOptions
-          options={Object.keys(this.state)}
+          options={feedbackOptions}
           onLeaveFeedback={this.feedbackType}
         />
         <Section title="Statistics">

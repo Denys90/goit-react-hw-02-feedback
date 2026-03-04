@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Notification = ({ message }) => {
+type Props = {
+  message: string;
+};
+const Notification = ({ message }: Props) => {
   return <p>{message}</p>;
 };
-
 export default Notification;
